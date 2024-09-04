@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %}
+<h2>Menu List</h2>
+<ul>
+    {% for menu in Menus %}
+        <li>
+            <strong>Plat:</strong> {{ menu.plat }}<br>
+            <strong>Temps de préparation:</strong> {{ menu.temps_de_preparation }}<br>
+            <strong>Coût:</strong> {{ menu.cout }}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

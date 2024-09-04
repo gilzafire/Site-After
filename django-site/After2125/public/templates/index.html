@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<main>
+    <section class="calendar-container">
+        <h2>Weekly Parties</h2>
+        <div class="calendar">
+            {% for day, parties in parties_by_day.items %}
+                <div class="day">
+                    <h3>{{ day }}</h3>
+                    <ul>
+                        {% for party in parties %}
+                            <li>
+                                {{ party.jour|date:"H:i" }} - {{ party.ritz.all|join:", " }} - {{ party.participants.count }} participants
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+{% endblock %}

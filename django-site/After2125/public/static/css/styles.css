@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #141214;
+    margin: 0;
+    padding: 0;
+}
+
+.col-sm-10 {
+    padding-top: 70px; /* Add padding to push the content down */
+    margin-top: 0px;
+    background-color: #333;
+    color: #7a288a;
+}
+
+main {
+    margin-top: 100px; /* Adjust this based on the height of your navbar */
+}
+
+.navbar {
+    width: 100%; /* Make the navbar take up the full width of the page */
+    position: fixed; /* Fix the navbar to the top of the page */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Make sure the navbar is on top of other elements */
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    justify-content: space-between;
+    padding: 0; /* Remove any default padding */
+    height: 70px; /* Set a fixed height for the navbar */
+    box-sizing: border-box; /* Ensure padding and borders are included in height */
+}
+
+
+.content-container {
+    padding-top: 70px; /* Add padding to push the content down */
+    height: calc(100vh - 70px);
+}
+
+
+.navbar {
+    width: 100%; /* Make the navbar take up the full width of the page */
+    position: fixed; /* Fix the navbar to the top of the page */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Make sure the navbar is on top of other elements */
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    justify-content: space-between;
+    padding: 0; /* Remove any default padding */
+    height: 70px; /* Set a fixed height for the navbar */
+    box-sizing: border-box; /* Ensure padding and borders are included in height */
+}
+
+.navbar-dark .navbar-brand {
+    color: #fff;
+    padding: 0; /* Remove padding around the logo */
+    height: 70px; /* Ensure the brand/logo takes up the full height of the navbar */
+    display: flex;
+    align-items: center; /* Center the logo vertically within the navbar */
+    object-fit: fill;
+}
+
+.navbar-dark .navbar-brand img {
+    max-height: 100%; /* Ensure the image doesn't exceed the height of the navbar */
+    width: auto; /* Maintain aspect ratio of the logo */
+    margin: 0; /* Remove any default margin around the logo */
+}
+
+.navbar-dark .navbar-nav {
+    display: flex; /* Enable Flexbox for the nav items */
+    width: 100%; /* Take up all available width */
+    justify-content: space-around; /* Distribute the nav items evenly */
+    height: 100%; /* Make the nav items take up the full height of the navbar */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+    flex-grow: 1; /* Each nav-link takes up equal space */
+    text-align: center;
+    padding: 0 10px; /* Adjust padding to give some space on the sides */
+    display: flex;
+    align-items: center; /* Center the text vertically */
+    height: 100%; /* Ensure the link takes up the full height of the navbar */
+}
+
+.navbar-dark .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #7a288a; /* Purple color */
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #7a288a; /* Purple color */
+    transform: scale(1.1);
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #7a288a; /* Purple color */
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+    background-color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-toggler-icon {
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-toggler-icon:hover {
+    color: #7a288a; /* Purple color */
+}
+
+.collapse {
+    transition: all 0.3s ease-in-out;
+}
+
+.collapse.show {
+    transition: all 0.3s ease-in-out;
+}
