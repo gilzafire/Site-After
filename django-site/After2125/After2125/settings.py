@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,6 +30,21 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+SHARD = os.getenv("SHARD", "api")
+
+LOCAL_APPS = [
+]
+
+# Add apps specific to each shard.
+if SHARD == "public":
+    LOCAL_APPS += [
+        'public',
+    ]
+elif SHARD == "api":
+    LOCAL_APPS += [
+        'public',
+        'api',
+    ]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,9 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'public.apps.PublicConfig',
-    'api'
-]
+]+ LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,11 +92,11 @@ WSGI_APPLICATION = 'After2125.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'AfterDB',
-	'USER': 'django',
-	'PASSWORD': 'django',
-	'HOST': '127.0.0.1',
-	'PORT': '5432',
+        'NAME': os.getenv('POSTGRES_DB'),
+	    'USER': os.getenv('POSTGRES_USER'),
+	    'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+	    'HOST': 'db',
+	    'PORT': '5432',
     }
 }
 

@@ -22,7 +22,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('public/', include('public.urls')),
-    path('api/', include('api.urls')),
-    path('', RedirectView.as_view(url='public/')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] 
+
+
+if "api" in settings.LOCAL_APPS:
+    urlpatterns += [path('api/', include('api.urls'))]
+if "public" in settings.LOCAL_APPS:   
+    urlpatterns += [path('public/', include('public.urls'))]
