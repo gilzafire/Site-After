@@ -42,7 +42,6 @@ if SHARD == "public":
     ]
 elif SHARD == "api":
     LOCAL_APPS += [
-        'public',
         'api',
     ]
 
@@ -53,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'shared',
 ]+ LOCAL_APPS
 
 MIDDLEWARE = [

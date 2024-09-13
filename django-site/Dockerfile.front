@@ -1,6 +1,7 @@
 FROM python:3.10-alpine
 WORKDIR /server
 ADD After2125/public ./public
+ADD After2125/shared ./shared
 ADD After2125/manage.py .
 ADD After2125/requirements.txt .
 COPY After2125/After2125 ./After2125

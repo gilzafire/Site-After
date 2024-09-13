@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Utilisateur, After, Ritz, Utilisateur_After
+from shared.models import Utilisateur, After, Ritz, Utilisateur_After
 
 admin.site.register(Utilisateur)
 admin.site.register(Ritz)

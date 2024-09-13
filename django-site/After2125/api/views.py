@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from django.http import JsonResponse
 from django.utils import timezone
-from public.models import After, Utilisateur, Ritz, Utilisateur_After
+from shared.models import After, Utilisateur, Ritz, Utilisateur_After
 
 
 
