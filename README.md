@@ -27,7 +27,8 @@
     <body>
         <h1>Bienvenue sur l'accueil de mon site</h1>
     </body>
-</html>'''
+</html>6
+```
 
 - 'DjangoProject/public/view.py'
 
@@ -36,7 +37,7 @@
 
     def index(request):
         return render(request, 'public/index.html')
-    ```
+    
  - 'DjangoProject/public/urls.py' -> fichier urls de l'app
     ```py
     from django.urls import path
