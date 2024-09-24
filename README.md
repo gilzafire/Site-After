@@ -27,7 +27,7 @@
     <body>
         <h1>Bienvenue sur l'accueil de mon site</h1>
     </body>
-</html>```
+</html>'''
 
 - 'DjangoProject/public/view.py'
 
