@@ -7,5 +7,4 @@ app_name = 'public'
 urlpatterns = [
     path("", views.index, name="index"),
     path('Menus/', views.MenusView.as_view(), name='Menus' ),
-
 ]

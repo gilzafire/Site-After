@@ -2,12 +2,13 @@ FROM python:3.10-alpine
 WORKDIR /server
 ADD After2125/public ./public
 ADD After2125/shared ./shared
+ADD After2125/static ./static
 ADD After2125/manage.py .
 ADD After2125/requirements.txt .
 COPY After2125/After2125 ./After2125
 ADD After2125/launchfront.sh .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+RUN python manage.py collectstatic --noinput
 EXPOSE 8000/tcp
 ENTRYPOINT [ "./launchfront.sh" ]
-

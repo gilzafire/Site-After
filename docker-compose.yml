@@ -23,14 +23,6 @@ services:
     networks:
       after:
 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
-    networks:
-      after:
-
   afterpublic:
     container_name: public
     build:
