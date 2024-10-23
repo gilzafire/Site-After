@@ -22,10 +22,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
+    path('public/', include('public.urls')),
 ] 
-
-
-if "api" in settings.LOCAL_APPS:
-    urlpatterns += [path('api/', include('api.urls'))]
-if "public" in settings.LOCAL_APPS:   
-    urlpatterns += [path('public/', include('public.urls'))]

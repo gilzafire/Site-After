@@ -39,25 +39,7 @@ services:
       - db
     networks:
       after:
-
-  afterapi:
-    container_name: api
-    build:
-      context: django-site/
-      dockerfile: ./Dockerfile.api
-    ports:
-      - 8001:8000
-    environment:
-      - POSTGRES_USER=django
-      - POSTGRES_PASSWORD=django
-      - POSTGRES_DB=AfterDB
-      - SHARD=api
-    depends_on:
-      - db
-    networks:
-      after:
-
-    
+       
   nginx:
     container_name: nginx
     image: nginx:alpine

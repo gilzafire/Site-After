@@ -26,24 +26,12 @@ SECRET_KEY = 'django-insecure-cj$opryhwgijj5irpb(098zsyqg&wwcn(2i%jaq1y2th6u4h^k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-SHARD = os.getenv("SHARD", "api")
-
 LOCAL_APPS = [
 ]
-
-# Add apps specific to each shard.
-if SHARD == "public":
-    LOCAL_APPS += [
-        'public',
-    ]
-elif SHARD == "api":
-    LOCAL_APPS += [
-        'api',
-    ]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -53,8 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shared',
-]+ LOCAL_APPS
-
+    'public',
+    'api',
+]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -92,11 +81,11 @@ WSGI_APPLICATION = 'After2125.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB'),
-	    'USER': os.getenv('POSTGRES_USER'),
-	    'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-	    'HOST': 'db',
-	    'PORT': '5432',
+        'NAME': os.getenv('DB_NAME'),  # Default to 'AfterDB' if not set
+        'USER': os.getenv('DB_USER'),   # Default to 'django' if not set
+        'PASSWORD': os.getenv('DB_PASSWORD'),  # Default to 'django' if not set
+        'HOST': os.getenv('DB_HOST'),  # Default to the service name
+        'PORT': os.getenv('DB_PORT', "5432"),  # Default to '5432' if not set
     }
 }
 
