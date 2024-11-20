@@ -26,4 +26,7 @@ def index(request):
 def MenusView(request):
         queryset = Ritz.objects.all().values('plat', 'temps_de_preparation', 'cout')
         return JsonResponse(list(queryset),safe=False)
-        
+
+def DJView(request):
+        queryset = Ritz.objects.all().values('plat', 'temps_de_preparation', 'cout')
+        return JsonResponse(list(queryset),safe=False)

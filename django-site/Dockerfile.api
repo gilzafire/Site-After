@@ -1,0 +1,6 @@
+FROM python:3.10-alpine
+WORKDIR /server
+COPY After2125 .
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
+ENTRYPOINT [ "./launchfront.sh" ]

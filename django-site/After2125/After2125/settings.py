@@ -30,8 +30,20 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
+SHARD = os.getenv("SHARD", "api")
+
 LOCAL_APPS = [
 ]
+
+if SHARD == "public":
+    LOCAL_APPS += [
+        'public',
+                ]
+elif SHARD == "api":
+    LOCAL_APPS += [
+        'public',
+        'api',
+    ]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,9 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shared',
-    'public',
-    'api',
-]
+]+LOCAL_APPS
+                                
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
